@@ -51,17 +51,56 @@ int fib(int n) {
 
 }
 
+
+///p60
+class Clock {
+public:
+    Clock();
+    Clock(int newH,int newM,int newS);
+    void setTime(int newH,int newM,int newS);
+    void showTime();
+
+private:
+    int hour, minute, second;
+};
+
+Clock::Clock(int newH,int newM,int newS) 
+    :hour(newH), minute(newM), second(newS) {
+    
+}
+
+Clock::Clock() : hour(0), minute(0), second(0) {}
+
+inline void Clock::showTime() {
+    cout << hour << ":" << minute << ":" << second << endl;
+}
+
+void Clock::setTime(int h,int m,int s) {
+    hour = h;
+    minute = m;
+    second = s;
+}
+
 int main()
 {   
+
+    ///p60
+
+    Clock c(0,0,0);
+    c.setTime(12,23,32);
+    c.showTime();
+    return 0;
+
+
     /// p 52
 
-    int n, anwser; 
+    //int n, anwser; 
 
-    cout << "plz enter a number" << "\n";
-    cin >> n;
-    anwser = fib(n);
+    //cout << "plz enter a number" << "\n";
+    //cin >> n;
+    //anwser = fib(n);
 
-    cout << "anwser is :" << anwser << "\n";
+    //cout << "anwser is :" << anwser << "\n";
 
 
 
