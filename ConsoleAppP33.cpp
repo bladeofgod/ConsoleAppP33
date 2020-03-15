@@ -39,16 +39,40 @@ int funC(int n) {
     return f;
 }
 
+int fib(int n) {
+
+    if (n < 3) {
+        return 1;
+    }
+    else {
+        return (fib(n-2) + fib(n-1));
+    
+    }
+
+}
+
 int main()
-{
+{   
+    /// p 52
+
+    int n, anwser; 
+
+    cout << "plz enter a number" << "\n";
+    cin >> n;
+    anwser = fib(n);
+
+    cout << "anwser is :" << anwser << "\n";
+
+
+
 
     ///practice 3 recusive
 
-    int aa;
-    cout << "pls enter a integer" << endl;
-    cin >> aa;
+    //int aa;
+    //cout << "pls enter a integer" << endl;
+    //cin >> aa;
 
-    cout << "value is " << funC(aa)<<endl;
+    //cout << "value is " << funC(aa)<<endl;
 
 
     /////practice 2 求两个数的平方和
