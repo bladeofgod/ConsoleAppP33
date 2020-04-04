@@ -109,9 +109,114 @@ public:
     void setVoltage(float v) { voltage = v; }
 
     void run() { cout << "run cpu"<<endl; }
-    void stop() {cout<<"stop cpu"<<endl}
+    void stop() { cout << "stop cpu" << endl; }
 
 };
+
+enum RAMP_TYPE {DDR2=2,DDR3,DDR4};
+
+class Ram {
+private:
+    enum RAMP_TYPE type;
+    unsigned int frequency;
+    unsigned int size;
+
+public:
+    Ram(RAMP_TYPE t, unsigned int f, unsigned int s) {
+        type = t;
+        frequency = f;
+        size = s;
+    }
+
+    ~Ram() { cout << "restore object" << endl; }
+
+    RAMP_TYPE getType()const { return type; }
+    unsigned int getFrequency()const { return frequency; }
+    unsigned int getSize()const { return size; }
+
+    void setType(RAMP_TYPE t) { type = t; }
+    void setFrequency(unsigned int f) { frequency = f; }
+    void setSize(unsigned int s) { size = s; }
+
+    void run() { cout << "run ram" << endl; }
+    void stop() { cout << "stop ram" << endl; }
+
+};
+
+enum CDROM_Interface {SATA,USB};
+enum CDROM_Install_Tywpe {external,built_in};
+
+
+class CD_ROM {
+private:
+    CDROM_Interface interface_type;
+    unsigned int cache_size;
+    CDROM_Install_Tywpe install_type;
+
+public:
+    CD_ROM(CDROM_Interface i, unsigned int c, CDROM_Install_Tywpe it) {
+        interface_type = i;
+        cache_size = c;
+        install_type = it;
+    }
+    ~CD_ROM() { cout << "restore cd_rom" << endl; }
+
+    CDROM_Interface getInterfaceType() { return interface_type; }
+    int getCacheSize() { return cache_size; }
+    CDROM_Install_Tywpe getType() { return install_type; }
+
+    void setInterfaceType(CDROM_Interface type) { interface_type = type; }
+    void setCacheSize(unsigned int size) { cache_size = size; }
+    void setInstallType(CDROM_Install_Tywpe it) { install_type = it; }
+
+    void run() { cout << "cdrom run" << endl; }
+    void stop() { cout << "cdrom stop " << endl; }
+};
+
+
+class Computer {
+private:
+    Cpu mCpu;
+    Ram mRam;
+    CD_ROM mCd;
+    unsigned int storage_size;
+    unsigned int bandWidth;
+
+public:
+    Computer(Cpu c, Ram r,CD_ROM cd,unsigned int ss,unsigned int bw);
+    ~Computer() {};
+
+    void run() {
+        mCpu.run();
+        mRam.run();
+        mCd.run();
+    }
+
+    void stop() {
+        mCpu.stop();
+        mRam.stop();
+        mCd.stop();
+    }
+
+    
+};
+
+
+///声明
+Computer::Computer(Cpu c, Ram r, CD_ROM cd, unsigned int s, unsigned int wb)
+    :mCpu(c), mRam(r), mCd(cd) {
+    storage_size = s;
+    bandWidth = wb;
+}
+
+
+
+
+
+
+
+
+
 
 
 int main()
