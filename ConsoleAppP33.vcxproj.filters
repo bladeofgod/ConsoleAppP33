@@ -18,5 +18,24 @@
     <ClCompile Include="ConsoleAppP33.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="client.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="client.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ConsoleAppP33.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

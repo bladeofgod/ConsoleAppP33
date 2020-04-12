@@ -212,15 +212,36 @@ Computer::Computer(Cpu c, Ram r, CD_ROM cd, unsigned int s, unsigned int wb)
 
 
 
+///P83
+
+void fn1();
+int x = 1, y = 2;
 
 
-
-
-
+void fn1() {
+    int y = 200;
+    cout << "x = " << x << endl;
+    cout << "y = " << y << endl;
+}
 
 
 int main()
 {   
+
+    ///p83
+
+    cout << "Begin" << endl;
+    cout << "x= " << x << endl;
+    cout << "y= " << y << endl;
+
+    cout << "evaluate x and y in main()..." << endl;
+
+    int x = 10, y = 20;
+    cout << "x = " << x << endl;
+    cout << "y = " << y << endl;
+
+    fn1();
+
 
     ///p73
     Cpu a(P6,300,2.8);
